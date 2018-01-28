@@ -1,0 +1,8 @@
+{
+  "name": "tdcperpignan",
+  "app_id": "9b4ce2b5",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
