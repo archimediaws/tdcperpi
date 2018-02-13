@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, Events, MenuController, LoadingController} from 'ionic-angular';
+import {NavController, Events, MenuController} from 'ionic-angular';
 
 import { WordpressPage } from '../../wordpress/wordpress-page/wordpress-page.component';
 
@@ -20,7 +20,6 @@ export class HomeComponent {
 	constructor(
 		private navController: NavController,
 		private menuController: MenuController,
-    private loadingController: LoadingController,
 		private events: Events) {}
 
 	ngOnInit() {

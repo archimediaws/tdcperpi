@@ -11,7 +11,6 @@ import { WordpressService } from '../shared/services/wordpress.service';
 })
 export class WordpressPage {
 	page: any;
-	// paage: any;
 
 	constructor(
 			private navParams: NavParams,
@@ -27,14 +26,6 @@ export class WordpressPage {
 		if (navParams.get('id')) {
 			this.getPage(navParams.get('id'));
 		}
-
-		// if (navParams.get('featured_media')){
-		//   this.getFeaturedMedia('featured_media');
-    // }
-
-    // if (navParams.get('paage')){
-    //   this.paage = navParams.get('paage');
-    // }
 
 	}
 
@@ -52,13 +43,6 @@ export class WordpressPage {
     () => loader.dismiss());
 	}
 
-	// getFeaturedMedia(id){
-	//
-	//
-	//
-	//
-	//
-  // }
 
 	previewPage() {
 		const browser = this.iab.create(this.page.link, '_blank');
