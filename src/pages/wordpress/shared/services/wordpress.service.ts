@@ -46,13 +46,6 @@ export class WordpressService {
 		});
 	}
 
-	public getTags() {
-		return this.http.get(this.config.wordpressApiUrl + '/wp/v2/tags?per_page=100')
-		.map(result => {
-			return result.json();
-		});
-	}
-
 
 	// START custom post menu_du_jour
 

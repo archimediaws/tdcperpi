@@ -7,7 +7,6 @@ import { WordpressPosts } from './wordpress-posts/wordpress-posts.component';
 import { WordpressPost } from './wordpress-post/wordpress-post.component';
 import { WordpressFeatureMedia } from './wordpress-feature-media/wordpress-feature-media.component';
 import { WordpressCategories } from './wordpress-categories/wordpress-categories.component';
-import { WordpressTags } from './wordpress-tags/wordpress-tags.component';
 import { WordpressFavorites } from './wordpress-favorites/wordpress-favorites.component';
 import { WordpressPages } from './wordpress-pages/wordpress-pages.component';
 import { WordpressPage } from './wordpress-page/wordpress-page.component';
@@ -27,7 +26,6 @@ import { WordpressMenudujour } from "./wordpress-menudujour/wordpress.menudujour
     WordpressPost,
     WordpressFeatureMedia,
     WordpressCategories,
-    WordpressTags,
     WordpressFavorites,
     WordpressPages,
     WordpressPage,
@@ -51,7 +49,6 @@ import { WordpressMenudujour } from "./wordpress-menudujour/wordpress.menudujour
     WordpressPost,
     WordpressFeatureMedia,
     WordpressCategories,
-    WordpressTags,
     WordpressFavorites,
     WordpressPages,
     WordpressPage,
@@ -69,7 +66,6 @@ import { WordpressMenudujour } from "./wordpress-menudujour/wordpress.menudujour
     WordpressPost,
     WordpressFeatureMedia,
     WordpressCategories,
-    WordpressTags,
     WordpressFavorites,
     WordpressPages,
     WordpressPage,

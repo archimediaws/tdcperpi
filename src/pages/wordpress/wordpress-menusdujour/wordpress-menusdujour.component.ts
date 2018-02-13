@@ -20,16 +20,10 @@ export class WordpressMenusdujour implements OnInit{
   menusdujour: any; // suggestion du chef
   pageCount: number; // nbs page
   category: any; // Catégories Suggestions
-  tag: any; // Tag
   author: any; // Auteur
   search: string; // recherche
   hideSearchbar: boolean; // Cache recherche
   favoritePosts: any;
-
-  // email: {subject: string, body: string} = {
-  //   subject: '',
-  //   body: ''
-  // };
 
 
   constructor(
@@ -39,15 +33,12 @@ export class WordpressMenusdujour implements OnInit{
     private navController: NavController,
     private loadingController: LoadingController,
     private toastController: ToastController,
-    private storage: Storage, // storage des favoris
-
-
+    private storage: Storage,
     ) {}
 
   ngOnInit() {
     this.now =  Date.now(); // date du jour Object
     this.category = this.navParams.get('category');
-    this.tag = this.navParams.get('tag');
     this.author = this.navParams.get('author');
     this.hideSearchbar = true; // Flag SearchBar
     this.search = '';
@@ -150,6 +141,9 @@ export class WordpressMenusdujour implements OnInit{
     this.hideSearchbar = !this.hideSearchbar;
   }
 
+
+  // creation de la query
+
   createQuery() {
     let query = {};
     query['page'] = this.pageCount;
@@ -158,9 +152,6 @@ export class WordpressMenusdujour implements OnInit{
     }
     if(this.category) {
       query['cat_menu_du_jour'] = this.category.id;
-    }
-    if(this.tag) {
-      query['tags'] = this.tag.id;
     }
     if(this.author) {
       query['author'] = this.author;

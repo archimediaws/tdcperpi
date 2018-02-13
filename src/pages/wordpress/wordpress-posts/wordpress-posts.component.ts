@@ -15,7 +15,6 @@ export class WordpressPosts implements OnInit {
 	posts: any;
 	pageCount: number;
 	category: any;
-	tag: any;
 	author: any;
 	search: string;
 	hideSearchbar: boolean;
@@ -31,7 +30,6 @@ export class WordpressPosts implements OnInit {
 
 	ngOnInit() {
 		this.category = this.navParams.get('category');
-		this.tag = this.navParams.get('tag');
 		this.author = this.navParams.get('author');
 		this.hideSearchbar = true;
 		this.search = '';
@@ -141,9 +139,6 @@ export class WordpressPosts implements OnInit {
 	}
 	if(this.category) {
 		query['categories'] = this.category.id;
-	}
-	if(this.tag) {
-		query['tags'] = this.tag.id;
 	}
 	if(this.author) {
 		query['author'] = this.author;
