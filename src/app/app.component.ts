@@ -35,6 +35,7 @@ export class MyApp {
 	menuPage = WordpressMenus;
 	pages: Array<{title: string, component: any, icon: string}>;
 	wordpressMenusNavigation: boolean = false;
+	// myId = '';
 
 	constructor(
 		private platform: Platform,
@@ -45,7 +46,8 @@ export class MyApp {
 		private config: Config,
 		private menuController: MenuController,
     private oneSignal: OneSignal,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    // private navParams: NavParams
 		) {
 		this.initializeApp();
 
@@ -71,6 +73,8 @@ export class MyApp {
 
 		];
 		this.wordpressMenusNavigation = config.wordpressMenusNavigation;
+
+		// this.myId = this.navParams.get('id');
 	}
 
 	initializeApp() {
@@ -104,6 +108,9 @@ export class MyApp {
       let message = data.notification.payload.body;
       let title = data.notification.payload.title;
 
+      let action = data.notification.payload.additionalData['action'];
+      // let actionId = data.notification.payload.additionalData['id'];
+
       let alert = this.alertCtrl.create({
         title: title,
         subTitle: message,
@@ -111,6 +118,16 @@ export class MyApp {
           {
             text: 'Fermer',
             role: 'Annuler'
+          },{
+
+            text: "Ouvrir",
+            handler: () => {
+
+              if (action === 'openPage'){
+                this.nav.push('page-about');
+              }
+
+            }
           }
         ]
 
@@ -124,6 +141,7 @@ export class MyApp {
     this.oneSignal.endInit();
 
   }
+
 
 
 }
