@@ -124,7 +124,8 @@ export class MyApp {
             handler: () => {
 
               if (action === 'openPage'){
-                this.nav.push('page-about');
+                this.menuController.close();
+                this.nav.setRoot('page-about');
               }
 
             }
