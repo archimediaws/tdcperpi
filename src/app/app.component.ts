@@ -46,8 +46,7 @@ export class MyApp {
 		private config: Config,
 		private menuController: MenuController,
     private oneSignal: OneSignal,
-    private alertCtrl: AlertController,
-    // private navParams: NavParams
+    private alertCtrl: AlertController
 		) {
 		this.initializeApp();
 
@@ -75,6 +74,7 @@ export class MyApp {
 		this.wordpressMenusNavigation = config.wordpressMenusNavigation;
 
 		// this.myId = this.navParams.get('id');
+
 	}
 
 	initializeApp() {
@@ -118,16 +118,17 @@ export class MyApp {
           {
             text: 'Fermer',
             role: 'Annuler'
-          },{
+           }
+           ,{
 
             text: "Ouvrir",
             handler: () => {
-
               if (action === 'openPage'){
-                this.menuController.close();
-                this.nav.setRoot('page-about');
-              }
+                // this.menuController.close();
+                // this.nav.push('page-about');
+                this.openPage('page-about')
 
+              }
             }
           }
         ]
@@ -142,7 +143,6 @@ export class MyApp {
     this.oneSignal.endInit();
 
   }
-
 
 
 }

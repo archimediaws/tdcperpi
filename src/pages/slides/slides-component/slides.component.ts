@@ -7,6 +7,9 @@ import { TabsComponent } from '../../tabs/tabs-component/tabs.component';
   templateUrl: 'slides.html'
 })
 export class SlidesComponent {
+
+  bgimg = "assets/img/ardoise.jpg"
+
   constructor(public nav: NavController) {}
 
   slides = [

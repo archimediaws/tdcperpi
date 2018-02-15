@@ -11,6 +11,8 @@ import {WordpressMenusdujour} from "../wordpress-menusdujour/wordpress-menusdujo
   templateUrl: 'wordpress-home.html'
 })
 export class WordpressHome {
+  bgimg = "assets/img/splashbglogin.jpg";
+  logo = "assets/img/appicon.png";
 	user: any;
 	pages: Array<{title: string, component: any, icon: string, note: string}>;
 
