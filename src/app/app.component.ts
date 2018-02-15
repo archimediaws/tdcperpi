@@ -19,6 +19,7 @@ import {WordpressHome} from "../pages/wordpress/wordpress-home/wordpress-home.co
 import {WordpressFavorites} from "../pages/wordpress/wordpress-favorites/wordpress-favorites.component";
 import {RestaurantComponent} from "../pages/restaurant/restaurant-component/restaurant.component";
 import {OneSignal} from "@ionic-native/onesignal";
+import {WordpressMenusdujour} from "../pages/wordpress/wordpress-menusdujour/wordpress-menusdujour.component";
 
 
 
@@ -123,9 +124,8 @@ export class MyApp {
             text: "Ouvrir",
             handler: () => {
               if (action === 'openPage'){
-                // this.menuController.close();
-                // this.nav.push('page-about');
-                this.openPage('page-about')
+                this.menuController.close();
+                this.nav.setRoot(WordpressMenusdujour);
 
               }
             }
