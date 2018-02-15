@@ -63,11 +63,10 @@ export class MyApp {
 
 		this.pages = [
 		  { title: 'HOME', component: TabsComponent, icon: 'home' },
-      { title: 'ABOUT', component: AboutComponent, icon: 'information-circle'},
       { title: 'RESTAURANT', component: RestaurantComponent, icon: 'information-circle'},
-      // { title: 'TRAITEUR', component: TraiteurComponent, icon: 'information-circle'},
       { title: 'FAVORITES', component: WordpressFavorites, icon: 'heart' },
       { title: 'SETTINGS', component: SettingsComponent, icon: 'settings'},
+      { title: 'ABOUT', component: AboutComponent, icon: 'information-circle'},
       { title: 'LOGIN', component: WordpressHome, icon: 'finger-print' },
 
 		];

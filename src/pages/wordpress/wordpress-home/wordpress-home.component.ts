@@ -26,8 +26,8 @@ export class WordpressHome {
 	ngOnInit() {
 		this.getUser();
 	  	this.pages = [
-        { title: 'POSTS', component: WordpressPosts, icon: 'logo-wordpress', note: 'voir liste' },
-        { title: 'SUGGESTIONS', component: WordpressMenusdujour, icon: 'document', note: 'voir liste'},
+        { title: 'POSTS', component: WordpressPosts, icon: 'cafe', note: 'voir liste' },
+        { title: 'SUGGESTIONS', component: WordpressMenusdujour, icon: 'restaurant', note: 'voir liste'},
         { title: 'PAGES', component: WordpressPages, icon: 'document', note: 'voir liste' },
 	    ];
 	}
