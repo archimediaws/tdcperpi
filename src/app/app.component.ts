@@ -20,7 +20,7 @@ import {WordpressFavorites} from "../pages/wordpress/wordpress-favorites/wordpre
 import {RestaurantComponent} from "../pages/restaurant/restaurant-component/restaurant.component";
 import {OneSignal} from "@ionic-native/onesignal";
 import {WordpressMenusdujour} from "../pages/wordpress/wordpress-menusdujour/wordpress-menusdujour.component";
-import {HomeComponent} from "../pages/home/home-component/home.component";
+
 
 
 
@@ -65,7 +65,7 @@ export class MyApp {
     this.storage.get('slide')
       .then( value => {
         if(value) {
-          this.nav.setRoot(HomeComponent);
+          this.nav.setRoot(TabsComponent);
         }
       });
 
