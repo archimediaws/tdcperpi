@@ -99,11 +99,11 @@ export class MyApp {
     this.oneSignal.startInit('30413270-7809-4157-bdef-87fe60126fd1', '411044932758');
 
     this.oneSignal.handleNotificationReceived().subscribe(data =>{
-      console.log('on a recu un push: ', data );
+      console.log('recu un push: ', data );
     });
 
     this.oneSignal.handleNotificationOpened().subscribe(data => {
-      console.log('on a ouvert un push: ', data );
+      console.log('ouvert un push: ', data );
 
       let message = data.notification.payload.body;
       let title = data.notification.payload.title;

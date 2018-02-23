@@ -8,6 +8,19 @@
 </ion-header>
 
 <ion-content class="grid-basic-page">
+
+  <ion-list>
+    <ion-list-header>
+      {{'NOTIFICATION-SETTING' | translate}}
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{'NOTIFICATION' | translate}}</ion-label>
+      <ion-toggle color="Rouge" *ngIf="toggle==false" [(ngModel)]="track.isChecked" (ngModelChange)="setPush(track)"  ></ion-toggle>
+      <ion-toggle color="Rouge" *ngIf="toggle==true"  (ionChange)="setPush(track)" checked="true" ></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+<hr>
   <ion-list>
     <ion-list-header>
     {{'LANGUAGE-SETTING' | translate}}
@@ -20,4 +33,9 @@
     </ion-select>
     </ion-item>
   </ion-list>
+
+
+
+  <!--<button ion-button full (click)="subscribeToNotification()">notification</button>-->
+
 </ion-content>

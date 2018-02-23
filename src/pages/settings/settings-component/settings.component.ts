@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
+import {OneSignal} from "@ionic-native/onesignal";
 
 @Component({
     templateUrl: 'settings.html'
@@ -8,10 +9,14 @@ import { TranslateService } from '@ngx-translate/core';
 export class SettingsComponent {
 
 	language: string;
+  track: Array<{name: string, isChecked: boolean}> = [];
+  toggle: boolean = false;
+
 
 	constructor(
 		private storage: Storage,
-		private translate: TranslateService
+		private translate: TranslateService,
+    private oneSignal: OneSignal
 		){}
 
 	ngOnInit() {
@@ -23,6 +28,17 @@ export class SettingsComponent {
 	        	this.language = 'fr';
 	        }
 	    });
+
+        this.storage.get('notification')
+        .then( value => {
+          if(value) {
+            this.track = value;
+            console.log(this.track);
+            // this.setPush(this.track);
+            this.toggle = true;
+          }
+          });
+
 	}
 
 	selectLanguage() {
@@ -30,6 +46,25 @@ export class SettingsComponent {
         this.translate.setDefaultLang(this.language);
         this.translate.use(this.language);
 	}
+
+
+  setPush(track: any){
+
+	  if(track.isChecked){
+      this.oneSignal.sendTag('notification', 'true');
+      this.storage.set('notification', 'true' );
+
+    }
+    else{
+      this.oneSignal.deleteTag('notification');
+      this.storage.remove('notification')
+	    //Unsubscribe
+
+
+    }
+
+
+  }
 
 }
 
