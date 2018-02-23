@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { Storage } from '@ionic/storage';
 import { TabsComponent } from '../../tabs/tabs-component/tabs.component';
 
 @Component({
@@ -10,7 +10,7 @@ export class SlidesComponent {
 
   bgimg = "assets/img/ardoise.jpg"
 
-  constructor(public nav: NavController) {}
+  constructor(public nav: NavController, private storage: Storage) {}
 
   slides = [
     {
@@ -31,6 +31,7 @@ export class SlidesComponent {
   ];
 
   openPage() {
+    this.storage.set('slide', true);
     this.nav.setRoot(TabsComponent);
   }
 }
