@@ -5,6 +5,7 @@ import {WordpressService} from "../shared/services/wordpress.service";
 import {WordpressMenudujour} from "../wordpress-menudujour/wordpress.menudujour.component";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {ContactComponent} from "../../contact/contact-component/contact.component";
+import {WordpressCreatepost} from "../wordpress-createpost/wordpress-createpost.component";
 
 
 @Component({
@@ -24,7 +25,8 @@ export class WordpressMenusdujour implements OnInit{
   search: string; // recherche
   hideSearchbar: boolean; // Cache recherche
   favoritePosts: any;
-
+  addbutton: boolean = false;
+  user: any;
 
   constructor(
     private inAppBrowser: InAppBrowser,
@@ -34,7 +36,11 @@ export class WordpressMenusdujour implements OnInit{
     private loadingController: LoadingController,
     private toastController: ToastController,
     private storage: Storage,
-    ) {}
+    ) {
+    // if(this.storage.get('wordpress.user')){
+    //   this.addbutton = true;
+    //   console.log(this.addbutton);}
+  }
 
   ngOnInit() {
     this.now =  Date.now(); // date du jour Object
@@ -50,6 +56,15 @@ export class WordpressMenusdujour implements OnInit{
         }
       });
     this.getMenusduJour();
+
+    this.storage.get('wordpress.user')
+      .then( value => {
+        if(value) {
+          this.user = value;
+          console.log(this.user);
+          this.addbutton = true;
+        }
+      });
 
   }
 
@@ -78,6 +93,8 @@ export class WordpressMenusdujour implements OnInit{
   searchPosts() {
     this.getMenusduJour();
   }
+
+
 
   loadMore(infiniteScroll) {
     this.pageCount++;
@@ -141,8 +158,14 @@ export class WordpressMenusdujour implements OnInit{
     this.hideSearchbar = !this.hideSearchbar;
   }
 
+  goToCreateSuggestion(): void {
+    this.navController.push(WordpressCreatepost);
+  }
+
+
 
   // creation de la query
+
 
   createQuery() {
     let query = {};

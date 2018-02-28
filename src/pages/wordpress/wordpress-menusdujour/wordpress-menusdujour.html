@@ -9,6 +9,11 @@
 
     <ion-title *ngIf="!category">{{'SUGGESTIONS' | translate}}</ion-title>
     <ion-title *ngIf="category">{{category.name}} <span *ngIf="category.count">({{category.count}})</span></ion-title>
+      <ion-buttons *ngIf="addbutton===true" end>
+        <button ion-button icon-only (click)="goToCreateSuggestion()">
+        <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
 
   </ion-navbar>
 

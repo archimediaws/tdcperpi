@@ -47,7 +47,7 @@ export class WordpressService {
 	}
 
 
-	// START custom post menu_du_jour
+	// START custom get post menu_du_jour
 
   public getMenusduJour(query) {
     query = this.transformRequest(query);
