@@ -68,61 +68,69 @@ export class WordpressMenusdujour implements OnInit{
 
   }
 
-  getMenusduJour() {
-    this.pageCount = 1;
 
-    let query = this.createQuery();
-    let loader = this.loadingController.create({
-      content: "Chargement en cours",
-      duration: 10000
-    });
-
-    loader.present();
-    this.wordpressService.getMenusduJour(query)
+  getMenusduJour(){
+    this.wordpressService.getNewsMenusduJour()
       .subscribe(result => {
-        this.menusdujour = result;
-        loader.dismiss();
-      });
+              this.menusdujour = result;
+            });
   }
 
-  getAuthorPosts(author) {
-    this.author = author;
-    this.getMenusduJour();
-  }
+  // getMenusduJour() {
+  //   this.pageCount = 1;
+  //
+  //   let query = this.createQuery();
+  //   let loader = this.loadingController.create({
+  //     content: "Chargement en cours",
+  //     duration: 10000
+  //   });
+  //
+  //   loader.present();
+  //   this.wordpressService.getMenusduJour(query)
+  //     .subscribe(result => {
+  //       this.menusdujour = result;
+  //       loader.dismiss();
+  //     });
+  // }
 
-  searchPosts() {
-    this.getMenusduJour();
-  }
+  // getAuthorPosts(author) {
+  //   this.author = author;
+  //   this.getMenusduJour();
+  // }
+  //
+  // searchPosts() {
+  //   this.getMenusduJour();
+  // }
 
 
 
-  loadMore(infiniteScroll) {
-    this.pageCount++;
-
-    let query = this.createQuery();
-    let loader = this.loadingController.create({
-      content: "Chargement en cours"
-    });
-    let toast = this.toastController.create({
-      message: "il n'y a plus d'autres suggestions ",
-      duration: 2000
-    });
-
-    loader.present();
-    this.wordpressService.getMenusduJour(query)
-      .subscribe(result => {
-          infiniteScroll.complete();
-          if(result.length < 1) {
-            infiniteScroll.enable(false);
-            toast.present();
-          } else {
-            this.menusdujour = this.menusdujour.concat(result);
-          }
-        },
-        error => console.log(error),
-        () => loader.dismiss());
-
-  }
+  // loadMore(infiniteScroll) {
+  //   this.pageCount++;
+  //
+  //   let query = this.createQuery();
+  //   let loader = this.loadingController.create({
+  //     content: "Chargement en cours"
+  //   });
+  //   let toast = this.toastController.create({
+  //     message: "il n'y a plus d'autres suggestions ",
+  //     duration: 2000
+  //   });
+  //
+  //   loader.present();
+  //   this.wordpressService.getMenusduJour(query)
+  //     .subscribe(result => {
+  //         infiniteScroll.complete();
+  //         if(result.length < 1) {
+  //           infiniteScroll.enable(false);
+  //           toast.present();
+  //         } else {
+  //           this.menusdujour = this.menusdujour.concat(result);
+  //         }
+  //       },
+  //       error => console.log(error),
+  //       () => loader.dismiss());
+  //
+  // }
 
   loadPost(menudujour) {
     this.navController.push(WordpressMenudujour, {

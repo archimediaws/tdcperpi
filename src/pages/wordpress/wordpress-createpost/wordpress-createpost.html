@@ -7,7 +7,7 @@
 			</button>
 
 
-		<ion-title>{{'SUGGESTION' | translate}}</ion-title>
+		<ion-title>{{'ADDSUGGESTION' | translate}}</ion-title>
 
 
 
@@ -22,6 +22,32 @@
   <ion-item>
     {{masuggestion}}
   </ion-item>
+
+  <form (submit)="addMenudujour()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>title</ion-label>
+        <ion-input type="text" [(ngModel)]="title" name="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>content</ion-label>
+        <ion-input type="text" [(ngModel)]="content" name="content"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>prix</ion-label>
+        <ion-input type="text" [(ngModel)]="price" name="prix"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="Rouge" block>{{ 'ADDSUGGESTION' | translate }}</button>
+      </div>
+
+    </ion-list>
+  </form>
+
 	<!--<ion-card *ngFor="let post of posts">-->
         <!--<ion-item text-wrap (click)="loadPost(post)">-->
             <!--<h1 class="titre"[innerHTML]="post.title.rendered"></h1>-->

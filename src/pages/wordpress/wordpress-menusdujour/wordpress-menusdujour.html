@@ -63,7 +63,7 @@
     <!-- Gravatar + titre -->
     <ion-item color="dark" >
       <ion-avatar item-left>
-        <img [src]="menudujour['_embedded'].author[0].avatar_urls[96]">
+        <!--<img [src]="menudujour['_embedded'].author[0].avatar_urls[96]">-->
       </ion-avatar>
       {{'SUGGESTION' | translate}}
     </ion-item>
@@ -81,7 +81,8 @@
             <p>{{menudujour.content.rendered | trimHTML | truncate: 60 }}</p>
           </ion-col>
           <ion-col col-4 text-right>
-            <h4 class="prix">{{ menudujour.acf.prix }} € <br> <p class="small-prix" >{{'PRIX' | translate}}</p> </h4>
+            <!--<h4 class="prix">{{ menudujour.acf.prix }} € <br> <p class="small-prix" >{{'PRIX' | translate}}</p> </h4>-->
+            <h4 class="prix">{{ menudujour.prix }} € <br> <p class="small-prix" >{{'PRIX' | translate}}</p> </h4>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -102,6 +103,7 @@
     </ion-row>
 
   </ion-card>
+
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>

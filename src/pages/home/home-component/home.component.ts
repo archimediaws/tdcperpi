@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {NavController, Events, MenuController} from 'ionic-angular';
 
 import { WordpressPage } from '../../wordpress/wordpress-page/wordpress-page.component';
+import {SettingsComponent} from "../../settings/settings-component/settings.component";
+
 
 
 
@@ -47,5 +49,8 @@ export class HomeComponent {
 		this.navController.push(page.component, page.params);
 	}
 
+	goToSettings(){
+    this.navController.push(SettingsComponent);
+  }
 
 }

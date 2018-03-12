@@ -13,9 +13,10 @@ import { WordpressService } from '../shared/services/wordpress.service';
 export class WordpressCreatepost implements OnInit {
 
 	 masuggestion: any = "ma suggestion create";
-
-
-
+	 content;
+	 title;
+	 price;
+	 token;
 
 
 	constructor(
@@ -26,15 +27,21 @@ export class WordpressCreatepost implements OnInit {
 		 private toastController: ToastController,
 		 private storage: Storage) {}
 
+
 	ngOnInit() {
-
         this.masuggestion = "creation";
-
+        this.token = this.storage.get('wordpress.user');
 
 	}
 
 
+  addMenudujour(){
 
+	  this.wordpressService.postMenuduJour(this.title, this.content, this.price, this.token).subscribe(data => {
+	    console.log(data)
+    });
+
+  }
 
 
 
